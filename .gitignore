@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data and large files 
+data/
+*.pt
+*.pth
+*.ckpt
+.DS_Store
