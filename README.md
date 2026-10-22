@@ -4,3 +4,5 @@ This project is implements a cancer detection ML model but reduced skin tone bia
 ## ACTIVATE VIRTUAL ENVIRONEMENT
 python3 -m venv .venv
 source .venv/bin/activate
+
+pip install pandas numpy pillow matplotlib scikit-learn
