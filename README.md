@@ -12,3 +12,4 @@ This feature is being implemented to resolve the ethical concerns that are relat
 - Install csv, shutil, cv2 (optional tqdm to load progress bar)
 - Point data path to dataset to recognise dataset images
 - New csv is created for flagged facial images for reference
+- PAD_UFES and DDI had no identifiable images recorded, Fitzpatrick had 633 images, CSV can be found at facial_csv/facial.csv
