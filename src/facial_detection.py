@@ -38,7 +38,7 @@ for img in tqdm(sorted(data_imgs.iterdir())):
     yunet_model.setInputSize((width, height))
     _, faces = yunet_model.detect(image)    #status value - ignored, face stored in variable
 
-        if faces is not None:
+    if faces is not None:
             num_faces = len(faces)      #number of faces in an image
             max_score = float(faces[:, -1].max())       #stores maximum face detection confidence
 
