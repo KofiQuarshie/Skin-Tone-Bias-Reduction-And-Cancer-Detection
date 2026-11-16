@@ -1,0 +1,44 @@
+#model:
+    #debug_print_flag: False #Use 1 (True) to enable to look plots and logs and don't save files or 0 (False) to disable and save files with logs
+    #weight_fn: None #True #False #TOTEST
+
+dataset: 
+    img_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/finalfitz17k"
+    csv_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/cleaned_fitzpatrick.csv"
+    models_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Results/Fitzpatrick"
+    checkpoint_path: "datasets/?" 
+    splits_save_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Results/Fitzpatrick/fitzpatrick_splits.csv"
+
+#transforms:
+    #transform_operation: transforms_img 
+    #target_transform_operation: transforms_rotations
+
+
+datasets_splitting_ratios: 
+    train_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/train_split.csv"
+    train_set: 0.70
+    val_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/val_split.csv"
+    validation_set : 0.15 
+    test_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/test_split.csv"
+    test_set : 0.15 
+    seed: 42
+    stratify_columns:
+      - skin_group
+      - disease
+  
+
+
+pretrained_model:
+    evaluation_with_pretrained_model_flag : False
+        # Set to True to skip training and validation, and instead use a pretrained model for evaluation only. Load desired model using above variables
+        # Set to False if you want to use the standard workflow: run training and validation, then perform evaluation.
+    models_folder_path : "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Results/Fitzpatrick" # LOCAL and SERVER paths
+    checkpoint_path : "datasets/?"
+    model_name_for_eval : "weights_fitzpatrick_1.pth" # weights_[dataset]_[number].pth .Please remember to add your own model.
+
+model_hyperparameters:
+    batch_size: 8
+     #set to 0 to save enough RAM for training on CPU
+    num_workers: 0
+    epochs: 5
+    learning_rate: 0.0003
