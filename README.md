@@ -25,3 +25,6 @@ fitzpatrick_clean.py file is used to further clean the dataset after the removal
 - Also, we only want skin diseases which are either malignant or benign, not non-neoplastic(not cancer nor a grpwth, could be eczema, acne, fungal infections, etc), which is outside the scope of this project. Non-neoplastic labels rows are also dropped
 - Lastly, the quality control (qc) column have been reviewed by dermatologists and given their remarks, we only keep characteristic or diagnostic values which shows there may be a growth of cancer or there definetely is cancer respectively. NaN values are also used, mainly because they havent been reviewed by experts yet. Other values(possiblu, other, wrongly labelled) will not be used to train the model and are dropped.
 
+
+## SPLITTING FITZPATRICK INTO 70/15/15 TRAIN TEST VALIDATION
+config_fitzpatrick.yaml consists of the code where the split values, data and csv paths, model paths and hyperparameters exists. It's relative fitzpatrick_split.py reads from the YAML file and performs the split. Each split is stored in different files; train_split.csv, test_split.csv and val_split.csv. This is done so training data is taken from that file only and same analogy for the remaining sets. 
