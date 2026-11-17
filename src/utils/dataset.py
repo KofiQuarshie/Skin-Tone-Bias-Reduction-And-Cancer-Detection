@@ -9,10 +9,15 @@ import pathlib
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from torch.utils.data import Dataset
-from torchvision.io import read_image
 import pandas as pd
 import yaml
+
+from torch.utils.data import Dataset
+from torchvision.io import read_image
+
+
+
+
 
 
 class Fitzpatrick(Dataset):
@@ -38,16 +43,20 @@ class Fitzpatrick(Dataset):
         if self.transform:
             image = self.transform(image)
 
-        return image
+        return image, row["disease"], row["skin_group"]
 
-data_folder = pathlib.Path("/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/finalfitz17k")
-with open ("/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/configs/config_fitzpatrick.yaml",'r', newline = '') as f:
-    config = yaml.safe_load(f)
+#data_folder = pathlib.Path("/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/finalfitz17k")
 
-train_set = Fitzpatrick(csv_path=config["datasets_splitting_ratios"]["train_dataset_csv"], f_dir=data_folder, transform=None)
-test_set  = Fitzpatrick(csv_path=config["datasets_splitting_ratios"]["test_dataset_csv"],  f_dir=data_folder, transform=None)
-#val_set = Fitzpatrick(csv_path=config["datasets_splitting_ratios"]["val_dataset_csv"],  f_dir=data_folder, transform=test_transforms)
 
-print(len(train_set))
-print(train_set[0])
-print(train_set[0].shape)
+if __name__ == "__main__":
+
+    with open ("/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/configs/config_fitzpatrick.yaml",'r', newline = '') as f:
+        config = yaml.safe_load(f)
+
+    train_set = Fitzpatrick(csv_path=config["datasets_splitting_ratios"]["train_dataset_csv"], f_dir=config["dataset"]["img_path"], transform=None)
+    test_set  = Fitzpatrick(csv_path=config["datasets_splitting_ratios"]["test_dataset_csv"],  f_dir=config["dataset"]["img_path"], transform=None)
+    #val_set = Fitzpatrick(csv_path=config["datasets_splitting_ratios"]["val_dataset_csv"],  f_dir=config["dataset"]["img_path"],  transform=test_transforms)
+
+    print(len(train_set))
+    print(train_set[0])
+    print(train_set[0].shape)

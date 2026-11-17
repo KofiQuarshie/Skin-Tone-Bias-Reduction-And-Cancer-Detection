@@ -3,28 +3,28 @@
     #weight_fn: None #True #False #TOTEST
 
 dataset: 
-    img_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/finalfitz17k"
-    csv_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/cleaned_fitzpatrick.csv"
-    models_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Results/Fitzpatrick"
-    checkpoint_path: "datasets/?" 
-    splits_save_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Results/Fitzpatrick/fitzpatrick_splits.csv"
+  img_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/finalfitz17k"
+  csv_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/cleaned_fitzpatrick.csv"
+  models_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Results/Fitzpatrick"
+  checkpoint_path: "datasets/?" 
+  splits_save_path: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Results/Fitzpatrick/fitzpatrick_splits.csv"
 
-#transforms:
-    #transform_operation: transforms_img 
-    #target_transform_operation: transforms_rotations
+transforms:
+  train_transform_operation: transforms_img 
+  test_transform_operation: transforms_rotations
 
 
 datasets_splitting_ratios: 
-    train_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/train_split.csv"
-    train_set: 0.70
-    val_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/val_split.csv"
-    validation_set : 0.15 
-    test_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/test_split.csv"
-    test_set : 0.15 
-    seed: 42
-    stratify_columns:
-      - skin_group
-      - disease
+  train_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/train_split.csv"
+  train_set: 0.70
+  val_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/val_split.csv"
+  validation_set : 0.15 
+  test_dataset_csv: "/Users/kofi/projects/Skin-Tone-Bias-Reduction-And-Cancer-Detection/data/Fitzpatrick/data/test_split.csv"
+  test_set : 0.15 
+  seed: 42
+  stratify_columns:
+    - skin_group
+    - disease
   
 
 
