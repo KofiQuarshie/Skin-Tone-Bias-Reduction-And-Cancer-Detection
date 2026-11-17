@@ -20,7 +20,7 @@ class EfficientNetB0(nn.Module):
             #output only 1 channel (nch_out), 1 = cancer probability
             in_features = self.model.classifier[1].in_features
             self.model.classifier[1] = nn.Linear(in_features, nch_out)
-            progress = True
+            #progress = True
         )
 
     def forward(self, x):
